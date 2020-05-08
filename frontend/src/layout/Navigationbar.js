@@ -1,17 +1,20 @@
-import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import React from "react";
+import { Nav, Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 function NavigationBar() {
   return (
-    <Navbar bg='dark' variant='dark'>
-      <Navbar.Brand href='Home'>Navbar</Navbar.Brand>
-      <Nav className='mr-auto'>
-        <Nav.Link href='Home'>Home</Nav.Link>
-        <Nav.Link href='MyLog'>My Log</Nav.Link>
-        <Nav.Link href='CommunityLog'>Community Log</Nav.Link>
-      </Nav>
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="/">Fisherman’s Log</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/my-log">My Log</Nav.Link>
+          <Nav.Link href="/community-log">CommunityLog</Nav.Link>
+        </Nav>
+      </Container>
     </Navbar>
-  )
+  );
 }
 
-  export default NavigationBar;
+export default NavigationBar;
