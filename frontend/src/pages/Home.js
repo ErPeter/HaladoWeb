@@ -18,7 +18,7 @@ function Home() {
           <h1>Community Log</h1>
           <p>Check out from communnity log</p>
           <p>
-            <Button href="/communiy-log" variant="primary">Go to</Button>
+            <Button href="/community-log" variant="primary">Go to</Button>
           </p>
         </Container>
       </Jumbotron>
