@@ -1,13 +1,12 @@
 import { Table } from "react-bootstrap";
 import TableElement from "../components/comunityLogs/TableElement";
 import MyLogForm from "../components/myLog/MyLogForm";
-import { connect } from 'react-redux';
-import { fetchCatches } from '../actions/catchActions'
+import { connect } from "react-redux";
+import { fetchCatches } from "../actions/catchActions";
 
 import React, { Component } from "react";
 
 export class MyLog extends Component {
-
   componentDidMount() {
     this.props.fetchCatches();
   }
@@ -53,7 +52,7 @@ export class MyLog extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   catches: state.catches.items,
 });
 
