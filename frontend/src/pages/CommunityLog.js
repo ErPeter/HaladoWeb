@@ -1,6 +1,7 @@
 import { Table } from "react-bootstrap";
 import TableElement from "../components/comunityLogs/TableElement";
-import axios from "axios";
+import { connect } from "react-redux";
+import { fetchAllCatches } from "../actions/catchActions";
 
 import React, { Component } from "react";
 
@@ -13,10 +14,7 @@ export class CommunityLog extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/catches").then((res) => {
-      console.log(res.data);
-      this.setState({ catches: res.data });
-    });
+    this.props.fetchAllCatches();
   }
 
   render() {
@@ -24,7 +22,7 @@ export class CommunityLog extends Component {
       <Table striped bordered hover variant="dark" className="mt-3">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>User ID</th>
             <th>Name</th>
             <th>Bait</th>
             <th>Fisshing pole</th>
@@ -34,9 +32,9 @@ export class CommunityLog extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.catches.map((actualCatch) => (
+          {this.props.catches.map((actualCatch) => (
             <TableElement
-              id={actualCatch.id}
+              uid={actualCatch.uid}
               name={actualCatch.name}
               bait={actualCatch.bait}
               fishing_pole={actualCatch.fishing_pole}
@@ -51,4 +49,8 @@ export class CommunityLog extends Component {
   }
 }
 
-export default CommunityLog;
+const mapStateToProps = (state) => ({
+  catches: state.catches.items,
+});
+
+export default connect(mapStateToProps, { fetchAllCatches })(CommunityLog);

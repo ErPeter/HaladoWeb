@@ -1,7 +1,19 @@
-import { FETCH_CATCHES, NEW_CATCH } from './types';
+import { FETCH_CATCHES, NEW_CATCH, FETCH_ALL_CATCHES } from './types';
+
+export const fetchAllCatches = () => (dispatch) => {
+  fetch('http://localhost:3001/catches')
+    .then((res) => res.json())
+    .then((catches) =>
+      dispatch({
+        type: FETCH_ALL_CATCHES,
+        payload: catches,
+      })
+    )
+    .catch(err => console.log(err))
+};
 
 export const fetchCatches = () => (dispatch) => {
-  fetch('http://localhost:3001/catches?id=101')
+  fetch('http://localhost:3001/catches?uid=101')
     .then((res) => res.json())
     .then((catches) =>
       dispatch({

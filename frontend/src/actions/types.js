@@ -1,2 +1,3 @@
 export const FETCH_CATCHES = 'FETCH_CATCHES';
 export const NEW_CATCH = 'NEW_CATCH';
+export const FETCH_ALL_CATCHES = 'FETCH_ALL_CATCHES';

@@ -37,7 +37,7 @@ export class MyLog extends Component {
           <tbody>
             {this.props.catches.map((actualCatch) => (
               <TableElement
-                id={actualCatch.id}
+                uid={actualCatch.uid}
                 name={actualCatch.name}
                 bait={actualCatch.bait}
                 fishing_pole={actualCatch.fishing_pole}

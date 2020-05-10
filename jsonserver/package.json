@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  
     "start": "json-server --watch -p 3001 db.json",
     "generate": "node ./fakeData.js > ./db.json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.16.1"
+    "json-server": "^0.16.1",
+    "uuid": "^8.0.0"
   }
 }

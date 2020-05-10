@@ -3,7 +3,7 @@ import React from "react";
 function TableElement(props) {
   return (
     <tr>
-      <td>{props.id}</td>
+      <td>{props.uid}</td>
       <td>{props.name}</td>
       <td>{props.bait}</td>
       <td>{props.fishing_pole}</td>

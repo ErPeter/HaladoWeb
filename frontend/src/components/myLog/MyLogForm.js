@@ -3,12 +3,14 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { createCatch } from '../../actions/catchActions';
+import {v4 as uuidv4} from 'uuid';
 
 class MyLogForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '111',
+      id: uuidv4(),
+      uid: '101',
       name: 'Matt Smith',
       bait: '',
       fishing_pole: '',
@@ -31,6 +33,7 @@ class MyLogForm extends React.Component {
 
     const newCatch = {
       id: this.state.id,
+      uid: this.state.uid,
       name: this.state.name,
       bait: this.state.bait,
       fishing_pole: this.state.fishing_pole,

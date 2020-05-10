@@ -1,4 +1,4 @@
-import { FETCH_CATCHES, NEW_CATCH } from '../actions/types';
+import { FETCH_CATCHES, NEW_CATCH, FETCH_ALL_CATCHES } from "../actions/types";
 
 const initialState = {
   items: [],
@@ -12,6 +12,12 @@ export default function (state = initialState, action) {
         ...state,
         items: action.payload,
       };
+    case FETCH_ALL_CATCHES:
+      return {
+        ...state,
+        items: action.payload,
+      };
+
     case NEW_CATCH:
       return {
         ...state,
