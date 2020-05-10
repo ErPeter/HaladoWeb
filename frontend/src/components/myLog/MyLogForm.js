@@ -1,6 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { connect } from 'react-redux';
+import {createCatch} from '../../actions/catchActions';
 
 class MyLogForm extends React.Component {
   constructor(props){
