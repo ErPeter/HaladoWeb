@@ -14,13 +14,13 @@ class MyLogForm extends React.Component {
       caughtFish: "",
       lake: "",
     };
+    this.change = this.change.bind(this);
   }
 
   change = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    this.change = this.change.bind(this);
   };
 
   onSubmit = (e) => {

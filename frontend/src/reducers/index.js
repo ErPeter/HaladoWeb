@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import cathcReducer from './cathcReducer';
+import catchReducer from './catchReducer';
 
 export default combineReducers({
-    catches: cathcReducer;
-})
+  catches: catchReducer,
+});

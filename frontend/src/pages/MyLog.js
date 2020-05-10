@@ -1,23 +1,15 @@
 import { Table } from "react-bootstrap";
 import TableElement from "../components/comunityLogs/TableElement";
 import MyLogForm from "../components/myLog/MyLogForm";
-import axios from "axios";
+import { connect } from 'react-redux';
+import { fetchCatches } from '../actions/catchActions'
 
 import React, { Component } from "react";
 
 export class MyLog extends Component {
-  constructor() {
-    super();
-    this.state = {
-      catches: [],
-    };
-  }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/catches?id=101").then((res) => {
-      console.log(res.data);
-      this.setState({ catches: res.data });
-    });
+    this.props.fetchCatches();
   }
 
   render() {
@@ -43,7 +35,7 @@ export class MyLog extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.catches.map((actualCatch) => (
+            {this.props.catches.map((actualCatch) => (
               <TableElement
                 id={actualCatch.id}
                 name={actualCatch.name}
@@ -61,4 +53,8 @@ export class MyLog extends Component {
   }
 }
 
-export default MyLog;
+const mapStateToProps = state => ({
+  catches: state.catches.items,
+});
+
+export default connect(mapStateToProps, { fetchCatches })(MyLog);
