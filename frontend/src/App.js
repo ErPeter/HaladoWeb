@@ -6,7 +6,10 @@ import CommunityLog from "./pages/CommunityLog";
 import Layout from "./layout/Layout";
 import Navigationbar from "./layout/Navigationbar";
 
+import {Provider} from 'redact-redux';
+
 function App() {
+  
   return (
     <React.Fragment>
       <Navigationbar />
