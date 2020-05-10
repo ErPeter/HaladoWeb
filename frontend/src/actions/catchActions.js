@@ -1,29 +1,31 @@
-import { FETCH_CATCHES, NEW_CATCH } from "./types";
+import { FETCH_CATCHES, NEW_CATCH } from './types';
 
 export const fetchCatches = () => (dispatch) => {
-  fetch("http://localhost:3001/catches?id=101")
+  fetch('http://localhost:3001/catches?id=101')
     .then((res) => res.json())
     .then((catches) =>
       dispatch({
         type: FETCH_CATCHES,
         payload: catches,
       })
-    );
+    )
+    .catch(err => console.log(err))
 };
 
-export const createCatch = (catchData) => (dispatch) => {
-  fetch("http://localhost:3001/catches?id=101", {
-    method: "POST",
+export const createCatch = newCatch => dispatch => {
+  fetch('http://localhost:3001/catches', {
+    method: 'POST',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json'
     },
-    body: JSON.stringify(catchData),
+    body: JSON.stringify(newCatch)
   })
-    .then((res) => res.json())
-    .then((newCatch) =>
+    .then(res => res.json())
+    .then(catchToAdd =>
       dispatch({
         type: NEW_CATCH,
-        payload: newCatch,
+        payload: catchToAdd
       })
-    );
+    )
+    .catch(err => console.log(err))
 };

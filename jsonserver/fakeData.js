@@ -37,6 +37,7 @@ let lake = ["Balaton", "Ladoga", "Onega", "Inari", "Pihka", "Mar Menor"];
 for (let i = 1; i <= 100; i++) {
   database.catches.push({
     id: i,
+    uid: ,
     name: faker.name.firstName() + " " + faker.name.lastName(),
     equipment: faker.lorem.word,
     bait: baits[faker.random.number({ min: 0, max: baits.length - 1 })],

@@ -1079,6 +1079,15 @@
       "preferred_technique": "Tenkara fishing",
       "caugthFish": "Cat fish",
       "lake": "Onega"
+    },
+    {
+      "id": "111",
+      "name": "Matt Smith",
+      "bait": "valami",
+      "fishing_pole": "valami",
+      "preferred_technique": "few",
+      "caugthFish": "fw",
+      "lake": "valami"
     }
   ]
 }

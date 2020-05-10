@@ -1,4 +1,4 @@
-import { FETCH_CATCHES, NEW_CATCH } from "../actions/types";
+import { FETCH_CATCHES, NEW_CATCH } from '../actions/types';
 
 const initialState = {
   items: [],

@@ -1,22 +1,23 @@
-import React from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import React from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
-import {createCatch} from '../../actions/catchActions';
+import { createCatch } from '../../actions/catchActions';
 
 class MyLogForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      id: "101",
-      name: "Matt Smith",
-      bait: "",
-      fishing_pole: "",
-      preferred_technique: "",
-      caughtFish: "",
-      lake: "",
+      id: '111',
+      name: 'Matt Smith',
+      bait: '',
+      fishing_pole: '',
+      preferred_technique: '',
+      caugthFish: '',
+      lake: '',
     };
     this.change = this.change.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   change = (e) => {
@@ -27,64 +28,73 @@ class MyLogForm extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+
+    const newCatch = {
+      id: this.state.id,
+      name: this.state.name,
+      bait: this.state.bait,
+      fishing_pole: this.state.fishing_pole,
+      preferred_technique: this.state.preferred_technique,
+      caugthFish: this.state.caugthFish,
+      lake: this.state.lake,
+    };
+    this.props.createCatch(newCatch);
     this.setState({
-        bait: "",
-        fishing_pole: "",
-        preferred_technique: "",
-        caughtFish: "",
-        lake: "",
-      },
-    );
+      bait: '',
+      fishing_pole: '',
+      preferred_technique: '',
+      caugthFish: '',
+      lake: '',
+    });
   };
 
   render() {
     return (
       <Form>
-        <Form.Group className="mt-3">
+        <Form.Group className='mt-3'>
           <Form.Control
-            name="bait"
+            name='bait'
             value={this.state.bait}
             onChange={(e) => this.change(e)}
-            placeholder="Bait"
+            placeholder='Bait'
           />
         </Form.Group>
         <Form.Group>
           <Form.Control
-            name="fishing_pole"
+            name='fishing_pole'
             value={this.state.fishing_pole}
             onChange={(e) => this.change(e)}
-            placeholder="Fishing pole	"
+            placeholder='Fishing pole	'
           />
         </Form.Group>
         <Form.Group>
           <Form.Control
-            name="preferred_technique"
+            name='preferred_technique'
             value={this.state.preferred_technique}
             onChange={(e) => this.change(e)}
-            placeholder="Technique"
+            placeholder='Technique'
           />
         </Form.Group>
         <Form.Group>
           <Form.Control
-            name="caugthFish"
+            name='caugthFish'
             value={this.state.caugthFish}
             onChange={(e) => this.change(e)}
-            placeholder="Caught fish"
+            placeholder='Caugth fish'
           />
         </Form.Group>
         <Form.Group>
           <Form.Control
-            name="lake"
+            name='lake'
             value={this.state.lake}
             onChange={(e) => this.change(e)}
-            placeholder="Lake"
+            placeholder='Lake'
           />
         </Form.Group>
-        <div className="container">
-          <div className="row">
-            <div className="col text-center">
-              <Button onClick={(e) => this.onSubmit(e)} variant="secondary">
+        <div className='container'>
+          <div className='row'>
+            <div className='col text-center'>
+              <Button onClick={(e) => this.onSubmit(e)} variant='secondary'>
                 Submit
               </Button>
             </div>
@@ -95,4 +105,4 @@ class MyLogForm extends React.Component {
   }
 }
 
-export default MyLogForm;
+export default connect(null, { createCatch })(MyLogForm);

@@ -29,7 +29,7 @@ export class CommunityLog extends Component {
             <th>Bait</th>
             <th>Fisshing pole</th>
             <th>Preferred Technique</th>
-            <th>Caught fish</th>
+            <th>Caugth fish</th>
             <th>Lake</th>
           </tr>
         </thead>
