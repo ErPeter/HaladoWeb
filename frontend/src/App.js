@@ -6,12 +6,13 @@ import CommunityLog from "./pages/CommunityLog";
 import Layout from "./layout/Layout";
 import Navigationbar from "./layout/Navigationbar";
 
-import {Provider} from 'redact-redux';
+import { Provider } from "react-redux"
+import store from './store'
+
 
 function App() {
-  
   return (
-    <React.Fragment>
+    <Provider store = {store}>
       <Navigationbar />
       <Layout>
         <Router>
@@ -22,7 +23,7 @@ function App() {
           </Switch>
         </Router>
       </Layout>
-    </React.Fragment>
+    </Provider>
   );
 }
 
